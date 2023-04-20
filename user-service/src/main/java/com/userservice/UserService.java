@@ -32,6 +32,7 @@ class UserService {
     UserResponseDto updateUser(long userId, UserRequestDto userRequestDto) {
         User foundUser = this.userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
         foundUser.setUsername(userRequestDto.username());
+        this.userRepository.save(foundUser);
         return foundUser.toResponseDto();
     }
 

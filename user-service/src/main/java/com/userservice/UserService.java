@@ -30,10 +30,10 @@ class UserService {
     }
 
     UserResponseDto updateUser(long userId, UserRequestDto userRequestDto) {
-        User foundUser = this.userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
-        foundUser.setUsername(userRequestDto.username());
-        this.userRepository.save(foundUser);
-        return foundUser.toResponseDto();
+        User user = this.userRepository.findById(userId).orElseThrow(IllegalArgumentException::new);
+        user.setUsername(userRequestDto.username());
+        this.userRepository.save(user);
+        return user.toResponseDto();
     }
 
     public void updateAmountOfPosts(long userId) {

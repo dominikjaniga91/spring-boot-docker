@@ -30,8 +30,9 @@ class PostService {
     }
 
     PostResponseDto updatePost(long postId, PostRequestDto postRequestDto) {
-        Post foundPost = this.postRepository.findById(postId).orElseThrow(IllegalArgumentException::new);
-        foundPost.setText(postRequestDto.text());
-        return foundPost.toResponseDto();
+        Post post = this.postRepository.findById(postId).orElseThrow(IllegalArgumentException::new);
+        post.setText(postRequestDto.text());
+        this.postRepository.save(post);
+        return post.toResponseDto();
     }
 }

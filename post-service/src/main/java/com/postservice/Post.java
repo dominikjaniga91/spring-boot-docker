@@ -8,20 +8,18 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  * @author Dominik_Janiga
  */
 @Entity
 @Table(name = "posts")
-@ToString
 class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String username;
 
     @Column(name = "author_id")
     private Long authorId;
@@ -29,25 +27,18 @@ class Post {
     private String text;
 
     @Column(name = "posted_at")
-    private LocalDateTime postedAt;
+    private LocalDate postedAt;
 
-
-    public Post() {
-
-    }
+    public Post() {}
 
     public Post(long authorId, String text) {
         this.authorId = authorId;
         this.text = text;
-        this.postedAt = LocalDateTime.now();
+        this.postedAt = LocalDate.now();
     }
 
     public Long getId() {
         return id;
-    }
-
-    public String getUsername() {
-        return username;
     }
 
     public Long getAuthorId() {
@@ -62,7 +53,7 @@ class Post {
         this.text = text;
     }
 
-    public LocalDateTime getPostedAt() {
+    public LocalDate getPostedAt() {
         return postedAt;
     }
 

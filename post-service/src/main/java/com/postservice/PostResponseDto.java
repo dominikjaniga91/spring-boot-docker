@@ -1,10 +1,10 @@
 package com.postservice;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 /**
  * @author Dominik_Janiga
  */
-record PostResponseDto(long id, long authorId, String text, LocalDateTime postedAt) {
+record PostResponseDto(long id, long authorId, String text, LocalDate postedAt) {
 
 }

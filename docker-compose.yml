@@ -25,14 +25,14 @@ services:
       - "5433:5432"
   user-service-app:
     container_name: 'user-service-app'
-    build: ./user-service
+    image: djanigaepam/user-service
     ports:
       - "8081:8081"
     depends_on:
       - user-database
   post-service-app:
     container_name: 'post-service-app'
-    build: ./post-service
+    image: djanigaepam/post-service
     ports:
       - "8082:8082"
     depends_on:

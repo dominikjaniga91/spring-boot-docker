@@ -5,6 +5,6 @@ import java.time.LocalDate;
 /**
  * @author Dominik_Janiga
  */
-record PostResponseDto(long id, long authorId, String text, LocalDate postedAt) {
+record PostResponseDto(long id, long authorId, String topic, String text, LocalDate postedAt) {
 
 }

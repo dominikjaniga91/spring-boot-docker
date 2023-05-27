@@ -24,6 +24,7 @@ class Post {
     @Column(name = "author_id")
     private Long authorId;
 
+    private String topic;
     private String text;
 
     @Column(name = "posted_at")
@@ -31,8 +32,9 @@ class Post {
 
     public Post() {}
 
-    public Post(long authorId, String text) {
+    public Post(long authorId, String topic, String text) {
         this.authorId = authorId;
+        this.topic = topic;
         this.text = text;
         this.postedAt = LocalDate.now();
     }
@@ -43,6 +45,14 @@ class Post {
 
     public Long getAuthorId() {
         return authorId;
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
     public String getText() {
@@ -58,6 +68,6 @@ class Post {
     }
 
     public PostResponseDto toResponseDto() {
-        return new PostResponseDto(id, authorId, text, postedAt);
+        return new PostResponseDto(id, authorId, topic, text, postedAt);
     }
 }
